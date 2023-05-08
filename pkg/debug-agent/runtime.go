@@ -1023,14 +1023,14 @@ func (m *DebugAttacher) DebugContainer(cfg RunConfig) error {
 	}
 
 	// step 1: pull image
-	if cfg.verbosity > 0 {
-		cfg.stdout.Write([]byte(fmt.Sprintf("pulling image %s, skip TLS %v... \n\r", m.image, m.registrySkipTLS)))
-	}
-	err := m.containerRuntime.PullImage(m.context, m.image, m.registrySkipTLS, m.authStr, cfg)
-	if err != nil {
-		cfg.stdout.Write([]byte(fmt.Sprintf("pulling image %s, \n\r", m.image)))
-		return err
-	}
+	// if cfg.verbosity > 0 {
+	// 	cfg.stdout.Write([]byte(fmt.Sprintf("pulling image %s, skip TLS %v... \n\r", m.image, m.registrySkipTLS)))
+	// }
+	// err := m.containerRuntime.PullImage(m.context, m.image, m.registrySkipTLS, m.authStr, cfg)
+	// if err != nil {
+	// 	cfg.stdout.Write([]byte(fmt.Sprintf("pulling image %s, \n\r", m.image)))
+	// 	return err
+	// }
 
 	// step 2: run debug container (join the namespaces of target container)
 	if cfg.verbosity > 0 {
