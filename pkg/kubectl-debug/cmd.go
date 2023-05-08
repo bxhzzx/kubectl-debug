@@ -706,11 +706,7 @@ func (o *DebugOptions) Run() error {
 		hstNm, _ := os.Hostname()
 		params.Add("hostname", hstNm)
 		params.Add("username", o.UserName)
-		if o.IsLxcfsEnabled {
-			params.Add("lxcfsEnabled", "true")
-		} else {
-			params.Add("lxcfsEnabled", "false")
-		}
+		params.Add("lxcfsEnabled", "false")
 		if o.RegistrySkipTLSVerify {
 			params.Add("registrySkipTLS", "true")
 		} else {
